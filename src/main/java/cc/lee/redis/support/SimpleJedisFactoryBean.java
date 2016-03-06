@@ -5,22 +5,22 @@ package cc.lee.redis.support;
 
 import org.springframework.beans.factory.FactoryBean;
 
-import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCommands;
 
 /**
  * @author lizhitao
  *
  */
 public class SimpleJedisFactoryBean extends SimpleJedisBeanFactory implements
-		FactoryBean<Jedis> {
+		FactoryBean<JedisCommands> {
 	@Override
-	public Jedis getObject() throws Exception {
+	public JedisCommands getObject() throws Exception {
 		return super.create();
 	}
 
 	@Override
 	public Class<?> getObjectType() {
-		return Jedis.class;
+		return JedisCommands.class;
 	}
 
 	@Override

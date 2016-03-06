@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import redis.clients.jedis.Jedis;
 
-public class TestRedis {
+public class JedisTest {
 	@Test
 	public void testJedis() {
 		Jedis jedis = new Jedis("localhost");

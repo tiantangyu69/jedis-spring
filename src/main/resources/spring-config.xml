@@ -20,7 +20,7 @@
 		<property name="testOnBorrow" value="${redis.testOnBorrow}" />
 	</bean>
 
-	<bean id="redis" class="cc.lee.redis.support.SimpleJedisFactoryBean">
+	<bean id="redis" class="cc.lee.redis.spring.support.SimpleJedisFactoryBean">
 		<property name="port" value="6379" />
 		<property name="host" value="localhost" />
 	</bean>

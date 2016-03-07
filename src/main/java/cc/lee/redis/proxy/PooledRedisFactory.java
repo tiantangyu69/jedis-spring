@@ -1,10 +1,10 @@
 package cc.lee.redis.proxy;
 
+import java.lang.reflect.Constructor;
+
+import redis.clients.jedis.JedisPoolConfig;
 import cc.lee.redis.PooledRedisClient;
 import cc.lee.redis.config.RedisClientConfig;
-import redis.clients.jedis.JedisPoolConfig;
-
-import java.lang.reflect.Constructor;
 
 /**
  * Created by lizhitao on 16-3-7.
@@ -23,11 +23,9 @@ public class PooledRedisFactory {
 		}
 	}
 
-	protected Constructor<PooledRedisClient> createConstructor()
-			throws Exception {
-		return new PooledRedisProxy().newProxy(PooledRedisClient.class, false).getConstructor(JedisPoolConfig.class, String.class, int.class, String.class, int.class);
-	}
-
+    protected Constructor<PooledRedisClient> createConstructor() throws Exception {
+        return new PooledRedisProxy().newProxy(PooledRedisClient.class, false).getConstructor(JedisPoolConfig.class, String.class, int.class, String.class, int.class);
+    }
 	public final synchronized PooledRedisClient create() throws Exception {
 		return constructor.newInstance(config.getJedisPoolConfig(), config.getHost(), config.getPort(), config.getPassword(), config.getDb());
 	}

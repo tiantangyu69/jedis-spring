@@ -17,9 +17,7 @@ public class JedisPoolTest {
 			jedis.set("foo2", "lizhitao");
 			System.out.println(jedis.get("foo2"));
 		} finally {
-			if (null != jedis) {
-				jedis.close();
-			}
+			if (null != jedis) {jedis.close();}
 		}
 		jedisPool.destroy();
 	}

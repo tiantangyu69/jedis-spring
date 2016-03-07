@@ -21,15 +21,14 @@ public class PooledRedisProxy extends AbstractProxy<PooledRedisClient> {
         implementMethod.setModifiers(implementMethod.getModifiers() & ~AccessFlag.ABSTRACT);
 
         String body = join("{",
-                "redis.clients.jedis.Jedis jedis = getResource();",
-                "Throwable lastError = null;",
+                "redis.clients.jedis.Jedis jedis = null;",
                 "try {",
+                "jedis = getResource();",
                 "    return jedis.", abstractMethod.getName(), "($$);",
-                "} catch (Throwable error) {",
-                "    lastError = error;",
-                "    throw new java.lang.RuntimeException(lastError);",
+                "} catch (Exception e) {",
+                "    throw new java.lang.RuntimeException(e);",
                 "} finally {",
-                "    returnResource(jedis);",
+                "    if (null != jedis) jedis.close();",
                 "}",
                 "}");
 

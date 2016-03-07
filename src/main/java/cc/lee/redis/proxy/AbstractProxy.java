@@ -2,6 +2,7 @@ package cc.lee.redis.proxy;
 
 import javassist.*;
 import javassist.bytecode.AccessFlag;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,8 @@ abstract class AbstractProxy<T> {
      * @return
      * @throws Exception
      */
-    final <E extends T> Class<E> newProxy(Class<? extends T> parentClass, boolean dumpProxyClass) throws Exception {
+    @SuppressWarnings("unchecked")
+	final <E extends T> Class<E> newProxy(Class<? extends T> parentClass, boolean dumpProxyClass) throws Exception {
         String proxyClassName = parentClass.getName().concat(PROXY_SUFFIX);
         synchronized (parentClass) {
             try {

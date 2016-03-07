@@ -90,21 +90,21 @@ abstract class AbstractProxy<T> {
     /**
      * 扫描接口
      *
-     * @param ctClass
+     * @param theClass
      * @param methodClassesMapper
      * @throws Exception
      */
-    private void scanInterfaces(CtClass ctClass, Map<CtMethod, List<CtClass>> methodClassesMapper) throws Exception {
-        for (CtClass inter : ctClass.getInterfaces()) {
-            for (CtMethod method : inter.getMethods()) {
-                List<CtClass> ctClasses = methodClassesMapper.get(method);
-                if (null != ctClasses) {
-                    ctClasses = new ArrayList<CtClass>();
-                    methodClassesMapper.put(method, ctClasses);
+    private void scanInterfaces(CtClass theClass, Map<CtMethod, List<CtClass>> methodClassesMapper) throws Exception {
+        for (CtClass iface : theClass.getInterfaces()) {
+            for (CtMethod method : iface.getMethods()) {
+                List<CtClass> classes = methodClassesMapper.get(method);
+                if (classes == null) {
+                    classes = new ArrayList<CtClass>();
+                    methodClassesMapper.put(method, classes);
                 }
-                ctClasses.add(inter);
+                classes.add(iface);
             }
-            scanInterfaces(inter, methodClassesMapper);
+            scanInterfaces(iface, methodClassesMapper);
         }
     }
 

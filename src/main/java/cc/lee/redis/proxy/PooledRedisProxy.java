@@ -1,39 +1,35 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.JredisCommands;
+import cc.lee.redis.PooledRedis;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;
 import javassist.bytecode.AccessFlag;
-import redis.clients.jedis.JedisPool;
 
 import java.util.List;
 
 /**
  * Created by lizhitao on 16-3-7.
  */
-public class PooledRedisProxy extends AbstractProxy<JredisCommands> {
-    private JedisPool jedisPool = new JedisPool();
+public class PooledRedisProxy extends AbstractProxy<PooledRedis> {
 
     @Override
     protected void implementAbstract(CtClass newClass, CtMethod abstractMethod, List<CtClass> definedClasses) throws Exception {
-        CtMethod implementMethod = CtNewMethod.copy(abstractMethod,
-                newClass, null);
+        CtMethod implementMethod = CtNewMethod.copy(abstractMethod, newClass, null);
         newClass.addMethod(implementMethod);
 
         implementMethod.setModifiers(implementMethod.getModifiers() & ~AccessFlag.ABSTRACT);
 
         String body = join("{",
-                "com.jd.cachecloud.driver.jedis.ShardNode node = getShardInfo($1);",
-                "redis.clients.jedis.Jedis shardedJedis = borrowFromPool(node);",
+                "redis.clients.jedis.Jedis jedis = getResource();",
                 "Throwable lastError = null;",
                 "try {",
-                "    return shardedJedis.", abstractMethod.getName(), "($$);",
+                "    return jedis.", abstractMethod.getName(), "($$);",
                 "} catch (Throwable error) {",
                 "    lastError = error;",
-                "    throw new com.jd.cachecloud.driver.jedis.ShardedJedisException(node, lastError);",
+                "    throw new java.lang.RuntimeException(lastError);",
                 "} finally {",
-                "    returnToPool(node, shardedJedis, lastError);",
+                "    returnResource(jedis);",
                 "}",
                 "}");
 

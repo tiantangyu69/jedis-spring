@@ -3,7 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
 
     <!-- 采用注释的方式配置bean -->
     <context:annotation-config/>
@@ -14,11 +15,12 @@
     <context:property-placeholder location="classpath:redis.properties"/>
 
     <bean id="redis" class="cc.lee.redis.spring.support.PooledRedisClientFactoryBean">
-        <property name="addr" value="localhost:6379"/>
+        <property name="addr" value="localhost"/>
         <property name="maxIdle" value="50"/>
         <property name="maxTotal" value="300"/>
         <property name="minIdle" value="10"/>
         <property name="testOnBorrow" value="true"/>
+        <property name="db" value="3"/>
     </bean>
 
 </beans>  

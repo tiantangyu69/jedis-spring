@@ -1,19 +1,18 @@
 package cc.lee.test.cli.spring.jedis;
 
-import javax.annotation.Resource;
-
+import cc.lee.redis.JredisCommands;
+import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
 
-import redis.clients.jedis.Jedis;
-import cc.lee.test.cli.spring.BaseTest;
+import javax.annotation.Resource;
 
 public class SimpleJedisFactoryBeanTest extends BaseTest {
 	@Resource
-	private Jedis jedis;
+	private JredisCommands redis;
 
 	@Test
 	public void testFactoryBean() {
-		jedis.set("foo", "lee");
-		System.out.println(jedis.get("foo"));
+		redis.set("foo", "lee");
+		System.out.println(redis.get("foo"));
 	}
 }

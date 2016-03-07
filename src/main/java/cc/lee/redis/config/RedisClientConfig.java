@@ -8,36 +8,45 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author lizhtiao
  */
 public class RedisClientConfig {
-    private JedisPoolConfig config = new JedisPoolConfig();
-    private String addr;
-    private Integer db;
-    private String password;
+	private JedisPoolConfig config = new JedisPoolConfig();
+	private String host;
+	private Integer port;
+	private Integer db;
+	private String password;
 
-    public JedisPoolConfig getJedisPoolConfig() {
-        return this.config;
-    }
+	public JedisPoolConfig getJedisPoolConfig() {
+		return this.config;
+	}
 
-    public String getAddr() {
-        return addr;
-    }
+	public void setHost(String host) {
+		this.host = host;
+	}
 
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
+	public void setPort(Integer port) {
+		this.port = port;
+	}
 
-    public Integer getDb() {
-        return db;
-    }
+	public Integer getDb() {
+		return db;
+	}
 
-    public void setDb(Integer db) {
-        this.db = db;
-    }
+	public void setDb(Integer db) {
+		this.db = db;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getPassword(){
-        return this.password;
-    }
+	public String getPassword() {
+		return this.password;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public Integer getPort() {
+		return port;
+	}
 }

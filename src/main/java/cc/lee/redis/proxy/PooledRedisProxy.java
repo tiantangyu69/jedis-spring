@@ -1,6 +1,6 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledRedis;
+import cc.lee.redis.PooledRedisClient;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lizhitao on 16-3-7.
  */
-public class PooledRedisProxy extends AbstractProxy<PooledRedis> {
+public class PooledRedisProxy extends AbstractProxy<PooledRedisClient> {
 
     @Override
     protected void implementAbstract(CtClass newClass, CtMethod abstractMethod, List<CtClass> definedClasses) throws Exception {

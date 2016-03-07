@@ -1,6 +1,6 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledRedis;
+import cc.lee.redis.PooledRedisClient;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.lang.reflect.Constructor;
@@ -14,7 +14,7 @@ public class PooledRedisFactory {
     private Integer db;
     private String password;
 
-    protected final Constructor<PooledRedis> constructor;
+    protected final Constructor<PooledRedisClient> constructor;
 
     public PooledRedisFactory() {
         try {
@@ -25,11 +25,11 @@ public class PooledRedisFactory {
         }
     }
 
-    protected Constructor<PooledRedis> createConstructor() throws Exception {
-        return new PooledRedisProxy().newProxy(PooledRedis.class, false).getConstructor(JedisPoolConfig.class, String.class, int.class, String.class, int.class);
+    protected Constructor<PooledRedisClient> createConstructor() throws Exception {
+        return new PooledRedisProxy().newProxy(PooledRedisClient.class, false).getConstructor(JedisPoolConfig.class, String.class, int.class, String.class, int.class);
     }
 
-    public final synchronized PooledRedis create() throws Exception {
+    public final synchronized PooledRedisClient create() throws Exception {
         return constructor.newInstance(jedisPoolConfig, addr, 6379, password, db);
     }
 

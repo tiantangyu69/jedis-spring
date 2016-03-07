@@ -1,6 +1,6 @@
 package cc.lee.test.cli.spring.jedis;
 
-import cc.lee.redis.JredisCommands;
+import cc.lee.redis.RedisClient;
 import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
 
@@ -8,11 +8,13 @@ import javax.annotation.Resource;
 
 public class SimpleJedisFactoryBeanTest extends BaseTest {
 	@Resource
-	private JredisCommands redis;
+	private RedisClient redis;
 
 	@Test
 	public void testFactoryBean() {
-		redis.set("foo", "lee");
-		System.out.println(redis.get("foo"));
+		for (int i = 0; i < 10000; i++) {
+			redis.set("foo", "lee");
+			System.out.println(redis.get("foo"));
+		}
 	}
 }

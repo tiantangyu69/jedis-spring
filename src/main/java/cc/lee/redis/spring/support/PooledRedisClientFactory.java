@@ -1,6 +1,6 @@
 package cc.lee.redis.spring.support;
 
-import cc.lee.redis.JredisCommands;
+import cc.lee.redis.RedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 import cc.lee.redis.proxy.PooledRedisFactory;
 
@@ -17,11 +17,11 @@ public class PooledRedisClientFactory {
     private Integer db;
     private RedisClientConfig redisClientConfig = new RedisClientConfig();
 
-    JredisCommands create() throws Exception {
+    RedisClient create() throws Exception {
         return createCommands(redisClientConfig);
     }
 
-    static JredisCommands createCommands(RedisClientConfig config) throws Exception {
+    static RedisClient createCommands(RedisClientConfig config) throws Exception {
         PooledRedisFactory pooledRedisFactory = new PooledRedisFactory();
         pooledRedisFactory.setJedisPoolConfig(config.getJedisPoolConfig());
         pooledRedisFactory.setAddr(config.getAddr());

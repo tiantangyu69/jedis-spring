@@ -1,4 +1,4 @@
-package cc.lee.redis.spring.support;
+package cc.lee.redis.spring;
 
 import cc.lee.redis.RedisClient;
 import org.springframework.beans.factory.DisposableBean;

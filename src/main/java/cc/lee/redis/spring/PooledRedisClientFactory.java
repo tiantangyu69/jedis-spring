@@ -1,4 +1,4 @@
-package cc.lee.redis.spring.support;
+package cc.lee.redis.spring;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.InitializingBean;

@@ -12,6 +12,5 @@ public interface RedisClient extends JedisCommands, MultiKeyCommands,
         AdvancedJedisCommands, ScriptingCommands, BasicCommands,
         ClusterCommands, SentinelCommands, BinaryJedisCommands,
         MultiKeyBinaryCommands, AdvancedBinaryJedisCommands,
-        BinaryScriptingCommands, Closeable {
-    void destory();
+        BinaryScriptingCommands, Closeable, Destory {
 }

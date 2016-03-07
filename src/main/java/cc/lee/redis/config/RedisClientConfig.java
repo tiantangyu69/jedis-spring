@@ -5,8 +5,8 @@ package cc.lee.redis.config;
  * 
  * @author lizhtiao
  */
-public class JedisConfig {
-	private JedisConfig() {
+public class RedisClientConfig {
+	private RedisClientConfig() {
 	}
 
 	/**

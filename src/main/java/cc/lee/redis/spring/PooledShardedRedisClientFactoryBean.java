@@ -5,25 +5,29 @@ import org.springframework.beans.factory.FactoryBean;
 
 import cc.lee.redis.ShardedRedisClient;
 
-public class PooledShardedRedisClientFactoryBean implements FactoryBean<ShardedRedisClient>, DisposableBean {
-	private ShardedRedisClient commands;
+/**
+ * Created by lizhitao on 16-3-8.
+ * ShardedRedisClient FactoryBean
+ */
+public class PooledShardedRedisClientFactoryBean extends PooledSharedRedisClientFactory implements FactoryBean<ShardedRedisClient>, DisposableBean {
+    private ShardedRedisClient commands;
 
-	public void destroy() throws Exception {
-		if (null != commands) {
-			commands.destory();
-		}
-	}
+    public ShardedRedisClient getObject() throws Exception {
+        return this.commands = super.create();
+    }
 
-	public ShardedRedisClient getObject() throws Exception {
-		return null;
-	}
+    public Class<?> getObjectType() {
+        return ShardedRedisClient.class;
+    }
 
-	public Class<?> getObjectType() {
-		return ShardedRedisClient.class;
-	}
+    public boolean isSingleton() {
+        return true;
+    }
 
-	public boolean isSingleton() {
-		return true;
-	}
+    public void destroy() throws Exception {
+        if (null != commands) {
+            commands.destory();
+        }
+    }
 
 }

@@ -23,4 +23,26 @@
         <property name="db" value="3"/>
     </bean>
 
+    <bean id="shardedRedis" class="cc.lee.redis.spring.PooledShardedRedisClientFactoryBean">
+        <property name="shardInfos">
+            <list>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg name="host" value="localhost"/>
+                    <constructor-arg name="port" value="6379"/>
+                    <constructor-arg name="name" value="sharded-1"/>
+                </bean>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg name="host" value="localhost"/>
+                    <constructor-arg name="port" value="6380"/>
+                    <constructor-arg name="name" value="sharded-2"/>
+                </bean>
+            </list>
+        </property>
+        <property name="maxIdle" value="50"/>
+        <property name="maxTotal" value="300"/>
+        <property name="minIdle" value="10"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="db" value="3"/>
+    </bean>
+
 </beans>  

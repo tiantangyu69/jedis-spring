@@ -33,9 +33,7 @@ public class SharedJedisPoolTest {
 			shardedJedis.set("key4", "lizhtiao4");
 			System.out.println(shardedJedis.getShardInfo("key4") +";"+shardedJedis.get("key4"));
 			
-		} catch (Exception e) {
-
-		} finally {
+		}finally {
 			if (null != shardedJedis) {
 				shardedJedis.close();
 			}

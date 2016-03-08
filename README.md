@@ -92,7 +92,7 @@
 package cc.lee.test.cli.spring.jedis;
 
 import cc.lee.redis.JedisCallback;
-import cc.lee.redis.JedisCallbackWithResult;
+import cc.lee.redis.JedisCallbackWithoutResult;
 import cc.lee.redis.client.RedisMasterSlaveClient;
 import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
@@ -129,7 +129,7 @@ public class MasterSlaveJedisFactoryBeanTest extends BaseTest {
         System.out.println(masterSlaveRedis.get("master-tran"));
         System.out.println(masterSlaveRedis.get("master-tran2"));
 
-        masterSlaveRedis.execute(new JedisCallbackWithResult() {
+        masterSlaveRedis.execute(new JedisCallbackWithoutResult() {
             @Override
             protected void callbackWithoutResult(Jedis jedis) {
                 Transaction transaction = jedis.multi();
@@ -148,7 +148,7 @@ public class MasterSlaveJedisFactoryBeanTest extends BaseTest {
 package cc.lee.test.cli.spring.jedis;
 
 import cc.lee.redis.JedisCallback;
-import cc.lee.redis.JedisCallbackWithResult;
+import cc.lee.redis.JedisCallbackWithoutResult;
 import cc.lee.redis.client.RedisClient;
 import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
@@ -181,7 +181,7 @@ public class SimpleJedisFactoryBeanTest extends BaseTest {
         System.out.println(redis.get("tran2"));
 
 
-        redis.execute(new JedisCallbackWithResult() {
+        redis.execute(new JedisCallbackWithoutResult() {
             @Override
             protected void callbackWithoutResult(Jedis jedis) {
                 Transaction transaction = jedis.multi();

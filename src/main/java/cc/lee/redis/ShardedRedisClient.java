@@ -4,6 +4,7 @@ import java.io.Closeable;
 
 import redis.clients.jedis.BinaryJedisCommands;
 import redis.clients.jedis.JedisCommands;
+import redis.clients.util.ShardInfo;
 
 /**
  * @author lizhitao
@@ -11,4 +12,5 @@ import redis.clients.jedis.JedisCommands;
  */
 public interface ShardedRedisClient extends JedisCommands, BinaryJedisCommands,
 		Closeable, Destory {
+    ShardInfo getShardInfo(String key);
 }

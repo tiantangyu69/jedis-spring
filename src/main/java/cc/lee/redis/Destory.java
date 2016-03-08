@@ -1,6 +1,6 @@
 package cc.lee.redis;
 /**
- * 关闭对象池
+ * 对象池销毁
  * @author lizhitao
  */
 public interface Destory {

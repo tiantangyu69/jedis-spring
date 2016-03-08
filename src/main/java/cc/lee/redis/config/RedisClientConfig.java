@@ -8,6 +8,9 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author lizhtiao
  */
 public class RedisClientConfig {
+	/**
+	 * pool配置
+	 */
 	private JedisPoolConfig config = new JedisPoolConfig();
 	private String host;
 	private Integer port;

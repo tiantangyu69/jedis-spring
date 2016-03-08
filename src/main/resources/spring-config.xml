@@ -14,7 +14,7 @@
 
     <context:property-placeholder location="classpath:redis.properties"/>
 
-    <bean id="redis" class="cc.lee.redis.spring.support.PooledRedisClientFactoryBean">
+    <bean id="redis" class="cc.lee.redis.spring.PooledRedisClientFactoryBean">
         <property name="addr" value="localhost:6379"/>
         <property name="maxIdle" value="50"/>
         <property name="maxTotal" value="300"/>

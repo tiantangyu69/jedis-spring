@@ -1,12 +1,10 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledRedisClient;
 import cc.lee.redis.PooledShardedRedisClient;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;
 import javassist.bytecode.AccessFlag;
-import redis.clients.jedis.ShardedJedis;
 
 import java.util.List;
 

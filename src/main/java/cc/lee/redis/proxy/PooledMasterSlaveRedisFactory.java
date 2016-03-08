@@ -51,7 +51,7 @@ public class PooledMasterSlaveRedisFactory {
         for (JedisShardInfo shardInfo : shardInfos) {
             if (shardInfo.getName().equals("master")) {
                 RedisClientConfig masterConfig = (RedisClientConfig) config.clone();
-                masterConfig.setDb(shardInfo.getDb());
+                masterConfig.setDb(config.getDb());
                 masterConfig.setPassword(shardInfo.getPassword());
                 masterConfig.setHost(shardInfo.getHost());
                 masterConfig.setPort(shardInfo.getPort());
@@ -60,7 +60,7 @@ public class PooledMasterSlaveRedisFactory {
                 this.master = masterFactory.create();
             } else if (shardInfo.getName().equals("slave")) {
                 RedisClientConfig slaverConfig = (RedisClientConfig) config.clone();
-                slaverConfig.setDb(shardInfo.getDb());
+                slaverConfig.setDb(config.getDb());
                 slaverConfig.setPassword(shardInfo.getPassword());
                 slaverConfig.setHost(shardInfo.getHost());
                 slaverConfig.setPort(shardInfo.getPort());

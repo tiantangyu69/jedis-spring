@@ -1,7 +1,7 @@
 package cc.lee.test.cli.spring.jedis;
 
 import cc.lee.redis.JedisCallback;
-import cc.lee.redis.JedisCallbackWithResult;
+import cc.lee.redis.JedisCallbackWithoutResult;
 import cc.lee.redis.client.RedisClient;
 import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class SimpleJedisFactoryBeanTest extends BaseTest {
         System.out.println(redis.get("tran2"));
 
 
-        redis.execute(new JedisCallbackWithResult() {
+        redis.execute(new JedisCallbackWithoutResult() {
             @Override
             protected void callbackWithoutResult(Jedis jedis) {
                 Transaction transaction = jedis.multi();

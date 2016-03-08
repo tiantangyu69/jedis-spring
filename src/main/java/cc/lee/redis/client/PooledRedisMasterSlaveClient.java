@@ -1,7 +1,7 @@
 package cc.lee.redis.client;
 
 import cc.lee.redis.JedisCallback;
-import cc.lee.redis.JedisCallbackWithResult;
+import cc.lee.redis.JedisCallbackWithoutResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public abstract class PooledRedisMasterSlaveClient implements RedisMasterSlaveCl
      * 执行Jedis原生API无返回结果
      * @param callbackWithResult
      */
-    public void execute(JedisCallbackWithResult callbackWithResult){
+    public void execute(JedisCallbackWithoutResult callbackWithResult){
         master.execute(callbackWithResult);
     }
 

@@ -1,6 +1,8 @@
 package cc.lee.redis.client;
 
 import cc.lee.redis.Destory;
+import cc.lee.redis.JedisCallback;
+import cc.lee.redis.JedisCallbackWithResult;
 import redis.clients.jedis.*;
 
 import java.io.Closeable;
@@ -14,4 +16,7 @@ public interface RedisClient extends JedisCommands, MultiKeyCommands,
         ClusterCommands, SentinelCommands, BinaryJedisCommands,
         MultiKeyBinaryCommands, AdvancedBinaryJedisCommands,
         BinaryScriptingCommands, Closeable, Destory {
+    <T> T execute(JedisCallback callback);
+
+    void execute(JedisCallbackWithResult callbackWithResult);
 }

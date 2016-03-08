@@ -1,5 +1,8 @@
 package cc.lee.redis.client;
 
+import cc.lee.redis.JedisCallback;
+import cc.lee.redis.JedisCallbackWithResult;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
@@ -19,6 +22,24 @@ public abstract class PooledRedisClient extends JedisPool implements RedisClient
 	public PooledRedisClient(JedisPoolConfig poolConfig, String host, int port,
 			String password, int db) {
 		super(poolConfig, host, port, Protocol.DEFAULT_TIMEOUT, password, db);
+	}
+
+	/**
+	 * 执行Jedis原生API
+	 * @param callback
+	 * @param <T>
+     * @return
+     */
+	public <T> T execute(JedisCallback callback){
+		return (T) callback.callback(getResource());
+	}
+
+    /**
+     * 执行Jedis原生API无返回结果
+     * @param callbackWithResult
+     */
+	public void execute(JedisCallbackWithResult callbackWithResult){
+		callbackWithResult.callback(getResource());
 	}
 
 	/**

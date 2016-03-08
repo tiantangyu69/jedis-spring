@@ -1,5 +1,7 @@
 package cc.lee.redis.client;
 
+import cc.lee.redis.JedisCallback;
+import cc.lee.redis.JedisCallbackWithResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +18,24 @@ public abstract class PooledRedisMasterSlaveClient implements RedisMasterSlaveCl
     public PooledRedisMasterSlaveClient(RedisClient master, RedisClient slave) {
         this.master = master;
         this.slave = slave;
+    }
+
+    /**
+     * 执行Jedis原生API
+     * @param callback
+     * @param <T>
+     * @return
+     */
+    public <T> T execute(JedisCallback callback) {
+        return master.execute(callback);
+    }
+
+    /**
+     * 执行Jedis原生API无返回结果
+     * @param callbackWithResult
+     */
+    public void execute(JedisCallbackWithResult callbackWithResult){
+        master.execute(callbackWithResult);
     }
 
     /**

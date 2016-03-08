@@ -15,7 +15,7 @@
 ##PooledRedis和MasterSlaveRedis增加对事务的支持
 ###通过回调Jedis原生API执行事务
 
-
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -85,8 +85,8 @@
     </bean>
 
 </beans>  
-
-
+```
+```java
 package cc.lee.test.cli.spring.jedis;
 
 import cc.lee.redis.JedisCallback;
@@ -228,3 +228,4 @@ public class SimpleShardedJedisFactoryBeanTest extends BaseTest {
         shardedJedis.del("key4");
     }
 }
+```

@@ -1,6 +1,6 @@
 package cc.lee.redis.spring;
 
-import cc.lee.redis.ShardedRedisClient;
+import cc.lee.redis.client.ShardedRedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 import cc.lee.redis.proxy.PooledShardedRedisFactory;
 import org.springframework.beans.factory.InitializingBean;

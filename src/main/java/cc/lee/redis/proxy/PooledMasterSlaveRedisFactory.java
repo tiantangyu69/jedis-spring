@@ -1,7 +1,7 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledRedisMasterSlaveClient;
-import cc.lee.redis.RedisClient;
+import cc.lee.redis.client.PooledRedisMasterSlaveClient;
+import cc.lee.redis.client.RedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 import redis.clients.jedis.JedisShardInfo;
 

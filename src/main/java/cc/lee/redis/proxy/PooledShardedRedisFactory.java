@@ -1,6 +1,6 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledShardedRedisClient;
+import cc.lee.redis.client.PooledShardedRedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;

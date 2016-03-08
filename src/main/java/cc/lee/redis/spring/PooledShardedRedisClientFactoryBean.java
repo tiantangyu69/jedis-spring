@@ -3,7 +3,7 @@ package cc.lee.redis.spring;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 
-import cc.lee.redis.ShardedRedisClient;
+import cc.lee.redis.client.ShardedRedisClient;
 
 /**
  * Created by lizhitao on 16-3-8.

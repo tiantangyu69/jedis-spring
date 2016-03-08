@@ -3,7 +3,7 @@ package cc.lee.redis.proxy;
 import java.lang.reflect.Constructor;
 
 import redis.clients.jedis.JedisPoolConfig;
-import cc.lee.redis.PooledRedisClient;
+import cc.lee.redis.client.PooledRedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 
 /**

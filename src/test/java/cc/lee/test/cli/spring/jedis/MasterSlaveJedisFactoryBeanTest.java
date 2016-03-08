@@ -1,7 +1,6 @@
 package cc.lee.test.cli.spring.jedis;
 
-import cc.lee.redis.RedisMasterSlaveClient;
-import cc.lee.redis.ShardedRedisClient;
+import cc.lee.redis.client.RedisMasterSlaveClient;
 import cc.lee.test.cli.spring.BaseTest;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package cc.lee.redis.spring;
 
-import cc.lee.redis.RedisClient;
-import cc.lee.redis.RedisMasterSlaveClient;
+import cc.lee.redis.client.RedisClient;
+import cc.lee.redis.client.RedisMasterSlaveClient;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 

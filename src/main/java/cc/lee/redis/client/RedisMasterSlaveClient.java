@@ -1,4 +1,4 @@
-package cc.lee.redis;
+package cc.lee.redis.client;
 
 /**
  * Created by lizhitao on 16-3-8.

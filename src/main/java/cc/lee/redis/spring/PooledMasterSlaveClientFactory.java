@@ -1,6 +1,6 @@
 package cc.lee.redis.spring;
 
-import cc.lee.redis.RedisMasterSlaveClient;
+import cc.lee.redis.client.RedisMasterSlaveClient;
 import cc.lee.redis.config.RedisClientConfig;
 import cc.lee.redis.proxy.PooledMasterSlaveRedisFactory;
 import org.springframework.beans.factory.InitializingBean;

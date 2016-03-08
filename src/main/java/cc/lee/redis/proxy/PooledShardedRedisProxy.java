@@ -1,6 +1,6 @@
 package cc.lee.redis.proxy;
 
-import cc.lee.redis.PooledShardedRedisClient;
+import cc.lee.redis.client.PooledShardedRedisClient;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;

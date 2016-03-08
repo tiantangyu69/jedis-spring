@@ -4,7 +4,7 @@ import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.InitializingBean;
 
 import redis.clients.jedis.Protocol;
-import cc.lee.redis.RedisClient;
+import cc.lee.redis.client.RedisClient;
 import cc.lee.redis.config.RedisClientConfig;
 import cc.lee.redis.proxy.PooledRedisFactory;
 

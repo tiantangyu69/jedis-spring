@@ -1,7 +1,8 @@
-package cc.lee.redis;
+package cc.lee.redis.client;
 
 import java.io.Closeable;
 
+import cc.lee.redis.Destory;
 import redis.clients.jedis.BinaryJedisCommands;
 import redis.clients.jedis.JedisCommands;
 import redis.clients.util.ShardInfo;

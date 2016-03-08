@@ -1,5 +1,6 @@
-package cc.lee.redis;
+package cc.lee.redis.client;
 
+import cc.lee.redis.Destory;
 import redis.clients.jedis.*;
 
 import java.io.Closeable;

@@ -1,8 +1,6 @@
-package cc.lee.redis;
+package cc.lee.redis.client;
 
 import java.util.List;
-
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;

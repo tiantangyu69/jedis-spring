@@ -13,7 +13,7 @@ public class MasterSlaveJedisFactoryBeanTest extends BaseTest {
 
     @Test
     public void testFactoryBean() {
-        masterSlaveRedis.set("aaaa", "aaaaa");
-        System.out.println(masterSlaveRedis.get("aaaa"));
+        masterSlaveRedis.set("bbb", "bbb");
+        System.out.println(masterSlaveRedis.get("bbb"));
     }
 }

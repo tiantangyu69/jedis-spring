@@ -18,7 +18,6 @@ public class PooledSharedRedisClientFactory implements RedisClientFactory, Initi
     private Integer minIdle;
     private Integer maxTotal;
     private Boolean testOnBorrow;
-    private Integer db;
 
     public ShardedRedisClient create() throws Exception {
         return createCommands(redisClientConfig);
@@ -55,11 +54,6 @@ public class PooledSharedRedisClientFactory implements RedisClientFactory, Initi
         this.testOnBorrow = testOnBorrow;
         redisClientConfig.getJedisPoolConfig().setTestOnBorrow(
                 this.testOnBorrow);
-    }
-
-    public void setDb(Integer db) {
-        this.db = db;
-        redisClientConfig.setDb(this.db);
     }
 
     public void afterPropertiesSet() throws Exception {

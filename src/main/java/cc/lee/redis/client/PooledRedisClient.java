@@ -4,6 +4,7 @@ import cc.lee.redis.JedisCallback;
 import cc.lee.redis.JedisCallbackWithoutResult;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Protocol;
 
 /**
@@ -39,6 +40,10 @@ public abstract class PooledRedisClient extends JedisPool implements RedisClient
      */
 	public void execute(JedisCallbackWithoutResult callbackWithResult){
 		callbackWithResult.callback(getResource());
+	}
+
+	public Pipeline pipelined(){
+		return getResource().pipelined();
 	}
 
 	/**

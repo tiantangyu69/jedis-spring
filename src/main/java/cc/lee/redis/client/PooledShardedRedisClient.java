@@ -4,6 +4,7 @@ import java.util.List;
 
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
+import redis.clients.jedis.ShardedJedisPipeline;
 import redis.clients.jedis.ShardedJedisPool;
 
 /**
@@ -13,6 +14,13 @@ import redis.clients.jedis.ShardedJedisPool;
 public abstract class PooledShardedRedisClient extends ShardedJedisPool implements ShardedRedisClient {
 	public PooledShardedRedisClient(JedisPoolConfig poolConfig, List<JedisShardInfo> shards) {
 		super(poolConfig, shards);
+	}
+	
+	/**
+	 * 获取管道
+	 */
+	public ShardedJedisPipeline pipelined() {
+		return getResource().pipelined();
 	}
 
     /**
